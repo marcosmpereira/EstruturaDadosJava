@@ -9,8 +9,9 @@ public class Main {
         vetor.adiciona("Dollys");
         vetor.adiciona("Tarzan");
         System.out.println(vetor);
-        System.out.println(vetor.tamanho());
-        System.out.println(vetor.buscaValor("Lessie"));
-
+//        System.out.println(vetor.tamanho());
+//        System.out.println(vetor.buscaValor("Lessie"));
+        vetor.insereValor("Marcos", 0);
+        System.out.println(vetor);
     }
 }

@@ -27,7 +27,7 @@ public class Vetor {
 
     public String buscaValor(int posicao) {
         posicao = posicao -1;
-        if(!(posicao > 0 && posicao < this.tamanho))
+        if(!(posicao >= 0 && posicao < this.tamanho))
             throw new IllegalArgumentException("A posição informada não existe!");
         return this.vetor[posicao];
     }
@@ -39,6 +39,17 @@ public class Vetor {
             }
         }
        return null;
+    }
+
+    public void insereValor(String conteudo, int posicao) {
+        if(!(posicao >= 0 && posicao < this.tamanho))
+            throw new IllegalArgumentException("A posição informada não existe!");
+
+        for(int i = this.tamanho -1; i >= posicao; i--) {
+            this.vetor[i+1] = this.vetor[i];
+        }
+        this.vetor[posicao] = conteudo;
+        this.tamanho++;
     }
 
     @Override
