@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 public class Vetor {
 
-    private String vetor[];
+    private Object vetor[];
     private int tamanho;
 
     public Vetor(int capacidade) {
-        this.vetor = new String [capacidade];
+        this.vetor = new Object [capacidade];
         this.tamanho = 0;
     }
 
-    public boolean adiciona(String valor){
+    public boolean adiciona(Object valor){
         this.aumentarCapacidadeVetor(valor);
        if(this.tamanho < this.vetor.length) {
            this.vetor[this.tamanho] = valor;
@@ -26,14 +26,14 @@ public class Vetor {
         return this.tamanho;
     }
 
-    public String buscaValor(int posicao) {
+    public Object buscaValor(int posicao) {
         posicao = posicao -1;
         if(!(posicao >= 0 && posicao < this.tamanho))
             throw new IllegalArgumentException("A posição informada não existe!");
         return this.vetor[posicao];
     }
 
-    public String buscaValor(String conteudo) {
+    public Object buscaValor(Object conteudo) {
         for(int i = 0; i < this.tamanho; i++) {
             if(this.vetor[i].equals(conteudo)) {
                 return conteudo;
@@ -42,7 +42,7 @@ public class Vetor {
        return null;
     }
 
-    public void adiciona(String conteudo, int posicao) {
+    public void adiciona(Object conteudo, int posicao) {
         if(!(posicao >= 0 && posicao < this.tamanho))
             throw new IllegalArgumentException("A posição informada não existe!");
 
@@ -64,9 +64,9 @@ public class Vetor {
         this.tamanho--;
     }
 
-    public void aumentarCapacidadeVetor(String elementos) {
+    public void aumentarCapacidadeVetor(Object elementos) {
         if(this.tamanho == this.vetor.length) {
-            String vetorTemporario [] = new String[this.tamanho * 2];
+            Object vetorTemporario [] = new Object[this.tamanho * 2];
             for(int i = 0; i < tamanho; i++) {
                 vetorTemporario[i] = this.vetor[i];
             }
@@ -74,12 +74,16 @@ public class Vetor {
         }
     }
 
+    public Object getObject(int indice) {
+        return this.vetor[indice];
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for(int i = 0; i < this.tamanho; i++) {
-            sb.append(this.vetor[i]+", ");
+            sb.append(this.vetor[i]+",\n ");
         }
         sb.append("]");
         return sb.toString();
