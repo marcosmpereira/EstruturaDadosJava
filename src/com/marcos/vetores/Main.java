@@ -1,5 +1,7 @@
 package com.marcos.vetores;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String args[]) {
@@ -30,22 +32,38 @@ public class Main {
             System.out.println("TESTE:"+ vetor.getObject(i));
         }
 
-        System.out.println("=================================================\n");
+        System.out.println("====================== LISTA GENERICA ===========================\n");
 
         Lista <Contato> lista  = new Lista (25);
 
 
-        for (int i = 0 ; i < 10000000; i++) {
+        for (int i = 0 ; i < 50; i++) {
             Contato contato = new Contato(
                     "Nick"+i,
                     "nick@gmail.com"+i,
                     20+i
             );
             lista.adiciona(contato);
-
         }
-
         System.out.println(lista);
+        System.out.println("========================== ARRAY LIST =======================\n");
 
+        ArrayList<Contato> arrayList = new ArrayList();
+        arrayList.add(contato1);
+        arrayList.add(contato2);
+        arrayList.add(contato3);
+        arrayList.add(0,contato4);
+
+        System.out.println(arrayList);
+        System.out.println(arrayList.indexOf(contato2));
+        System.out.println(arrayList.get(3));
+        System.out.println(arrayList.contains(contato4));
+        System.out.println(arrayList.size());
+
+        arrayList.remove(contato4);
+
+        System.out.println(arrayList);
+        arrayList.removeAll(arrayList);
+        System.out.println(arrayList);
     }
 }
