@@ -11,6 +11,7 @@ public class Main {
             27
         );
         Contato contato3 = new Contato(contato2);
+        Contato contato4 = new Contato(contato2);
 
         contato1.setNome("Marcos Moraes Pereira");
         contato1.setEmail("meuid3@gmail.com");
@@ -23,12 +24,28 @@ public class Main {
         vetor.adiciona(contato3);
         vetor.adiciona(contato3);
 
-        //System.out.println(vetor);
+        System.out.println(vetor.buscaValor(contato4));
 
         for(int i = 0; i < vetor.tamanho(); i++) {
-            System.out.println("TST:"+ vetor.getObject(i));
+            System.out.println("TESTE:"+ vetor.getObject(i));
         }
 
+        System.out.println("=================================================\n");
+
+        Lista <Contato> lista  = new Lista (25);
+
+
+        for (int i = 0 ; i < 10000000; i++) {
+            Contato contato = new Contato(
+                    "Nick"+i,
+                    "nick@gmail.com"+i,
+                    20+i
+            );
+            lista.adiciona(contato);
+
+        }
+
+        System.out.println(lista);
 
     }
 }

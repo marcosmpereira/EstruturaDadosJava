@@ -1,5 +1,7 @@
 package com.marcos.vetores;
 
+import java.util.Objects;
+
 public class Contato {
     private String nome;
     private String email;
@@ -45,13 +47,25 @@ public class Contato {
 
     @Override
     public String toString(){
-       StringBuilder sb = new StringBuilder();
-       sb.append("{");
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
         sb.append("nome:"+this.nome+",");
         sb.append("email:"+this.email+",");
         sb.append("idade:"+this.idade);
-       sb.append("}");
+        sb.append("}");
+        return sb.toString();
+    }
 
-       return sb.toString();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contato contato = (Contato) o;
+        return idade == contato.idade && Objects.equals(nome, contato.nome) && Objects.equals(email, contato.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, email, idade);
     }
 }
